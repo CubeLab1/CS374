@@ -69,15 +69,13 @@ int main() {
     return 0;
 }
 
-// Function to calculate the total surface area
 double calculate_total_surface_area(double R, double ha, double hb) {
-    double top_surface_area = 2 * PI * R * ha;
-    double bottom_surface_area = 2 * PI * R * hb;
+    double top_surface_area = PI * (2 * R * ha - ha * ha);
+    double bottom_surface_area = PI * (2 * R * hb - hb * hb);
     double lateral_surface_area = 2 * PI * R * (ha - hb);
     return top_surface_area + bottom_surface_area + lateral_surface_area;
 }
 
-// Function to calculate the volume
 double calculate_volume(double R, double ha, double hb) {
-    return (PI / 6.0) * (3 * pow(R, 2) * (ha - hb) + pow(ha, 3) - pow(hb, 3));
+    return (PI / 6.0) * ((3 * R * R * (ha - hb)) + (ha * ha * ha) - (hb * hb * hb));
 }
